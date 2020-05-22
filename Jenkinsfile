@@ -1,13 +1,13 @@
 pipeline {
    agent any
    tools {
-        maven "MAVEN"
+        maven "Local-Maven"
    }
    stages {
       stage('Build') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/kuldeepapisero/apacheKafka.git'
+            git 'https://github.com/ApiseroAnand/test2.git'
             // To run Maven on a Windows agent, use
             bat "mvn -Dmaven.test.failure.ignore=true clean package"
          }
@@ -15,7 +15,7 @@ pipeline {
       stage('Test') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/kuldeepapisero/apacheKafka.git'
+            git 'https://github.com/ApiseroAnand/test2.git'
             // To run Maven on a Windows agent, use
              bat "mvn -Dmaven.test.failure.ignore=true clean test"
          }
@@ -23,7 +23,7 @@ pipeline {
       stage('Deploy') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/kuldeepapisero/apacheKafka.git'
+            git 'https://github.com/ApiseroAnand/test2.git'
             // To run Maven on a Windows agent, use
              bat "mvn -Dmaven.test.failure.ignore=true clean deploy -DmuleDeploy"
          }
